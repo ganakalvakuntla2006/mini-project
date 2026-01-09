@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
   user: {
@@ -11,7 +11,10 @@ const postSchema = mongoose.Schema({
   },
   content: String,
   likes: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "user" }
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user"
+    }
   ]
 });
 

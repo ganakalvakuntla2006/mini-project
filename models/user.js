@@ -1,32 +1,18 @@
 const mongoose = require('mongoose');
 
-// Connect to MongoDB (Note: Ensure the connection string matches your setup)
+// Connect to MongoDB (Ensure MongoDB is running)
 mongoose.connect("mongodb://127.0.0.1:27017/miniproject");
 
 const userSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
+  username: String,
+  name: String,
+  email: String,
+  password: String,
   age: Number,
-  // Data Association: Reference to the Post model
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "post" // This must match the name used in mongoose.model() in post.js
+      ref: "post"
     }
   ]
 });
